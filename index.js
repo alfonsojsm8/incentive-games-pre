@@ -11,7 +11,14 @@ const data = require("./data");
  * PLAYER 2...
  */
 
- // Your code
+ // Your code 
+ const showPlayers = (players) => { 
+     players.forEach((item, index)=> { 
+         console.log("PLAYER " +index+ "\n NAME: " + item.name+ "\n LASTNAME: " +item.lastname + "\n POSITION: " + item.position); 
+     });
+}
+
+//showPlayers(data.getPlayers());
 
 
 
@@ -21,9 +28,12 @@ const data = require("./data");
  */
 
 // Your code
+const compareNames = (itemA, itemB) => {
+    return itemA.name.length - itemB.name.length;
+    
+}
 
-
-
+//showPlayers(data.getPlayers().sort(compareNames));
 
 
 /**
@@ -35,6 +45,16 @@ const data = require("./data");
  */
 
 // Your code
+const averageGoals = (players) => {
+    let totalAverage = 0;
+    players.forEach((item, index)=> { 
+        totalAverage = item.scoringChance / 100 + totalAverage;
+    });
+    return Math.round(totalAverage * 100) / 100
+}
+
+//let numberOfGoals = averageGoals(data.getPlayers());
+//console.log("Goals per match for all players:  " + numberOfGoals);
 
 
 
@@ -44,7 +64,13 @@ const data = require("./data");
  */
 
 // Your code
-
+const findThePlayer = (playerName, players) => {
+    let rigthplayer = players.filter((player)=>{
+        return player.name == playerName;
+    });
+    showPlayers(rigthplayer);
+}
+//findThePlayer("Diego", data.getPlayers());
 
 
 /**
@@ -57,3 +83,49 @@ const data = require("./data");
  */
 
 // Your code
+
+const splitTeams = (players, teamA, teamB) => {
+
+    if(players.length % 2 != 0)
+        console.log("Can not split in two teams with same number of players");
+    else{
+        while(players.length > 0){
+            player = players.pop();
+            if(teamA.length >= countPlayers/2){
+                teamB.push(player);
+            }
+            else{
+                if(teamB.length >= countPlayers/2){
+                    teamA.push(player);
+                }
+                else{
+                    let whatTeam = Math.round(Math.random());
+                    if(whatTeam == 1){
+                        teamA.push(player);
+                    }
+                    else{
+                        teamB.push(player);
+                    }
+                }
+            }
+                        
+        }
+    }
+}
+
+const showMathPreview = (equipoA, equipoB)=> {
+    console.log("TEAM A");
+    console.log(" The average score for teams A is: " + averageGoals(equipoA));
+    console.log("LINEUP")
+    showPlayers(equipoA);
+    console.log("--------------------------------");
+    console.log("TEAM B");
+    console.log(" The average score for teams A is: " + averageGoals(equipoB));
+    console.log("LINEUP")
+    showPlayers(equipoB);
+}
+
+let equipoA = [];
+let equipoB = [];
+splitTeams(data.getPlayers(), equipoA, equipoB);
+showMathPreview(equipoA, equipoB);
