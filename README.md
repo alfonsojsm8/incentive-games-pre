@@ -1,6 +1,6 @@
 # INCENTIVE GAMES
 
-Hi! This is a ¡the version from Alfonso Sánchez to Incentive Games.
+Hi! This is the version from Alfonso Sánchez to Incentive Games.
 
 ## HOW TO RUN IT
 
