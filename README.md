@@ -1,8 +1,6 @@
 # INCENTIVE GAMES
 
-Hi! This is a Javascript test where you will code some functions to prove what you are made of (nothing too complicated or long).
-
-Use ES6 if you are familiar with it.
+Hi! This is a ¡the version from Alfonso Sánchez to Incentive Games.
 
 ## HOW TO RUN IT
 
