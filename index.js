@@ -125,7 +125,9 @@ const showMathPreview = (equipoA, equipoB)=> {
     showPlayers(equipoB);
 }
 
+/*
 let equipoA = [];
 let equipoB = [];
 splitTeams(data.getPlayers(), equipoA, equipoB);
 showMathPreview(equipoA, equipoB);
+*/
