@@ -94,10 +94,13 @@ const findThePlayer = (playerName, players) => {
 
 // Your code
 
-const splitTeams = (players, teamA, teamB) => {
+const splitTeams = (players) => {
 
-    if(players.length % 2 != 0)
+    let teamA = [];
+    let teamB = [];
+    if(players.length % 2 != 0){
         console.log("Can not split in two teams with same number of players");
+    }
     else{
         while(players.length > 0){
             let player = players.pop();
@@ -121,6 +124,7 @@ const splitTeams = (players, teamA, teamB) => {
                         
         }
     }
+    return {teamA: teamA, teamB: teamB};
 }
 
 const showMathPreview = (equipoA, equipoB)=> {
@@ -135,11 +139,11 @@ const showMathPreview = (equipoA, equipoB)=> {
     showPlayers(equipoB);
 }
 
-/*
-let equipoA = [];
-let equipoB = [];
-splitTeams(data.getPlayers(), equipoA, equipoB);
-showMathPreview(equipoA, equipoB);
-*/
+
+let teamsSplitted = splitTeams(data.getPlayers());
+let teamA = teamsSplitted.teamA;
+let teamB = teamsSplitted.teamB;
+showMathPreview(teamA, teamB);
+
 
 
